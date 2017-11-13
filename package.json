@@ -1,0 +1,26 @@
+{
+  "name": "notification-microservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sayanriju/notification-microservice.git"
+  },
+  "author": "Sayan \"Riju\" Chakrabarti <s26c.sayan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sayanriju/notification-microservice/issues"
+  },
+  "homepage": "https://github.com/sayanriju/notification-microservice#readme",
+  "dependencies": {
+    "faye": "^1.2.4",
+    "ms": "^2.0.0",
+    "node-gcm": "^0.14.9",
+    "redis": "^2.8.0",
+    "simple-jwt": "^1.0.2"
+  }
+}
