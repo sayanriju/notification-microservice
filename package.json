@@ -18,9 +18,9 @@
   "homepage": "https://github.com/sayanriju/notification-microservice#readme",
   "dependencies": {
     "faye": "^1.2.4",
+    "jsonwebtoken": "^8.1.0",
     "ms": "^2.0.0",
     "node-gcm": "^0.14.9",
-    "redis": "^2.8.0",
-    "simple-jwt": "^1.0.2"
+    "redis": "^2.8.0"
   }
 }
