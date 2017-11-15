@@ -30,13 +30,16 @@ bayeux.addExtension(bayeuxExts.restrictPublish)
 app.post("/notify", Express.json({ strict: false }), (req, res) => {
   const getDevicesPipe = redis.pipeline()
   const saveNotifsPipe = redis.pipeline()
+  const userNotifsPipe = redis.pipeline()
   const deviceIds = []
+
   const when = Date.now()
+  const notifId = shortid()
   const targets = [...new Set(req.body.targets)] // prune duplicates
   const notifs = targets.map(forWhom => ({
     forWhom,
     when,
-    notifId: shortid(),
+    notifId,
     what: req.body.content,
     type: req.body.type
   }))
@@ -48,8 +51,8 @@ app.post("/notify", Express.json({ strict: false }), (req, res) => {
     serverClient.publish(`/notifications/${notif.forWhom}`, notif)
     // 2. Get deviceId(s) of each `forWhom` from Redis Sets target:<targetId>:devices
     getDevicesPipe.smembers(`target:${notif.forWhom}:devices`)
-    // 4. Save each notif to Redis for posterity
-    saveNotifsPipe.zadd(`notifs:user:${notif.forWhom}`, )
+    // 3. Refernce this notif to the user's unread messages (redis sorted set)
+    userNotifsPipe.zadd(`unread:user:${notif.forWhom}`, when, notifId)   
   })
   
   // 3. Send a Push Notification to those deviceId(s)
