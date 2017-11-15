@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "func-names": [ "error", "never" ],
+    "comma-dangle": [ "error", "only-multiline" ],
+    "semi": [ "warn", "never" ],
+    "no-console": 1,
+    "no-unused-vars": 1,
+    "prefer-const": 1,
+    "no-var": 1,
+    "eol-last": 1,
+    "quotes": [ "warn", "double" ],
+    "max-len": [ "warn", { "ignoreComments": true, "ignoreTrailingComments": true, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true } ],
+    "import/newline-after-import": 0,
+    "no-underscore-dangle": 0
+  }
+}
