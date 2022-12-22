@@ -19,7 +19,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "faye": "^1.2.4",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "ms": "^2.0.0",
     "node-gcm": "^0.14.9",
     "redis": "^2.8.0",
